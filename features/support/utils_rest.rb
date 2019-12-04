@@ -69,7 +69,6 @@ def send_get(path, headers = {})
     puts "response_code = #{code} "
     puts "response_head = #{headers} "
     parsed = body && body.length >= 2 && (json_string? body) ? JSON.parse(body) : {}
-  #  puts "response_body = #{JSON.pretty_generate(JSON.parse(parsed.to_json))} "
     puts "response_body = #{JSON.parse(parsed.to_json)} "
   end
   

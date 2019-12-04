@@ -96,3 +96,7 @@
     s_array = JSON.parse(@last_response.body)
     expect(s_array.find { |item| item["#{key}"] == value }).to be_nil,lambda { 'obj not found in body' }
   end
+
+  When(/^ответ ~= (.*)$/) do |key|
+    expect(@last_response.body).to match(key)
+  end
