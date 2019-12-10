@@ -12,7 +12,6 @@ def send_get(path, headers = {})
       when 301, 302, 307
         @last_response = response.follow_redirection
       else
-        log_response_params response.code, response.headers, response.body
         @last_response = response
       end
     end
