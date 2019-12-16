@@ -100,3 +100,11 @@
   When(/^ответ ~= (.*)$/) do |key|
     expect(@last_response.body).to match(key)
   end
+
+  When(/^В ответе есть ключ (.*) со значением - (.*)$/) do |key, key2|
+    require 'jsonpath'
+    jp = JsonPath.new "$..#{key}"
+    array = jp.on @last_response.body
+    expect(array).to include(key2)
+  end
+
