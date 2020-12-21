@@ -15,7 +15,7 @@
     table.hashes.each {|param| payload_hash = payload_hash.merge(Hash[param[:key], param[:value]])}
     send_post(urn, payload_hash, headers_hash)
   end
-  
+
   Then(/^Проверяем что значение "([^"]*)" равно "([^"]*)"$/) do |key, value|
     validate_auth(key, value)
   end
@@ -37,7 +37,7 @@
   end
   
   
-  When(/^Отправить get "([^"]*)" запрос$/) do |url|
+  When(/^Отправить get "(.*)" запрос$/) do |url|
     @response = send_get("#{url}/?")
     #log_response_params @last_response.code, @last_response.headers, @last_response.body
     @last_response = @response
